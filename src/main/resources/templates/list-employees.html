@@ -1,8 +1,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-	
+
 	<head>
-		<title>List Employees</title>
-		
+		<title>List employees</title>
+
 		<link rel="stylesheet"
 			type="text/css"
 			href="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.css" />
@@ -11,19 +11,19 @@
 			integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
 			crossorigin="anonymous" />
 	</head>
-	
+
 	<body>
-		
+
 		<div class="container">
 
 			<br>
-			<h3>List Employees</h3>
-			
+			<h3>List employees</h3>
+
 			<hr/>
 			<a th:href="@{/addEmployeeForm}" class="btn btn-primary">Add Employee</a>
 			<br/><br/>
 			<table class="table table-bordered table-striped" id="employeeTable">
-			
+
 				<thead>
 					<tr>
 						<th>Name</th>
@@ -43,15 +43,14 @@
 						<td th:text="${employee.email}" />
 						<td>
 							<a th:href="@{/showUpdateForm(employeeId=${employee.id})}" class="btn btn-info">Update</a>
-							
 							<a th:href="@{/deleteEmployee(employeeId=${employee.id})}" class="btn btn-danger ml-2">Delete</a>
 						</td>
 					</tr>
 				</tbody>
-				
+
 			</table>
 		</div>
-		
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.js"></script>
 		<script>
@@ -59,11 +58,10 @@
 				$("#employeeTable").DataTable({
 						'aoColumnDefs': [{
         				'bSortable': false,
-        				'aTargets': [-1] /* 1st one, start by the right */
+        				'aTargets': [-1]
     				}]
 				});
 			})
 		</script>
 	</body>
-	
 </html>

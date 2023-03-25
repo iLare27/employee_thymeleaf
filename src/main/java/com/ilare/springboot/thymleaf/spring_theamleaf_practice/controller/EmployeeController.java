@@ -24,6 +24,7 @@ public class EmployeeController {
 	public ModelAndView getAllEmployees() {
 		ModelAndView mav = new ModelAndView("list-employees");
 		mav.addObject("employees", eRepo.findAll());
+
 		return mav;
 	}
 	
@@ -32,6 +33,7 @@ public class EmployeeController {
 		ModelAndView mav = new ModelAndView("add-employee-form");
 		Employee newEmployee = new Employee();
 		mav.addObject("employee", newEmployee);
+
 		return mav;
 	}
 	
@@ -49,13 +51,14 @@ public class EmployeeController {
 		ModelAndView mav = new ModelAndView("add-employee-form");
 		Employee employee = eRepo.findById(employeeId).get();
 		mav.addObject("employee", employee);
-		return mav;
 
+		return mav;
 	}
 	
 	@GetMapping("/deleteEmployee")
 	public String deleteEmployee(@RequestParam Long employeeId) {
 		eRepo.deleteById(employeeId);
+
 		return "redirect:/list";
 	}
 }
